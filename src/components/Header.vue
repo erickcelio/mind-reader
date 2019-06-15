@@ -13,12 +13,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/mixins";
   header {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px 20px;
-    box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);;
+    @include header-box-shadow;
   }
 
   .logo {

@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div id="home">
+    <router-link to="/trick" class="btn">
+      Start
+    </router-link>
   </div>
 </template>
 
@@ -8,3 +11,14 @@ export default {
   name: 'home'
 }
 </script>
+
+<style scoped lang="scss">
+  #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn {
+      font-weight: 600;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+@import "colors";
+
+@mixin row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin box-shadow-default {
+  box-shadow: 0 2px 8px $shadow-color;
+}
+
+@mixin header-box-shadow {
+  box-shadow: 0 2px 4px $shadow-color;
+}
