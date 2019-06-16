@@ -8,7 +8,7 @@ const deckAPI = axios.create({
 
 const getDeck = async (count) => {
   const deckId = window.localStorage.getItem('deckId')
-  console.log(deckId)
+
   if (deckId) {
     await deckAPI.get(`${deckId}/shuffle/`)
   }

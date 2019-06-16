@@ -14,6 +14,7 @@ export default {
 
 <style scoped lang="scss">
   #home {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
