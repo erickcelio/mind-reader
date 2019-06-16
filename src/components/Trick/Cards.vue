@@ -8,14 +8,21 @@
         class="btn">
         {{ columnIndex + 1 }}
       </button>
-      <transition-group appear tag="div" class="cards-container" name="list">
+      <div
+        :class="`${enterAnimation && 'enter-animation'}
+          ${flipCardsAnimation && 'change-cards'}`"
+        @animationend="resetAnimations"
+        class="cards-container">
         <img
-          :class="`${hover === columnIndex ? 'card active' : 'card'}`"
+          :class="`${hover === columnIndex
+          ? 'card active'
+          : 'card'}`"
           v-for="(card, index) in column"
           :key="index"
-          :src="card.images['png']"
+          :src="card.image"
+          alt="Card Image"
         />
-      </transition-group>
+      </div>
     </div>
   </div>
 </template>
@@ -32,11 +39,17 @@ export default {
   data () {
     return {
       hover: null,
+      flipCardsAnimation: false,
+      enterAnimation: true,
       stage: 0
     }
   },
   methods: {
     ...mapActions(['changeCards']),
+    resetAnimations () {
+      this.flipCardsAnimation = false
+      this.enterAnimation = false
+    },
     putCardsOnColumns (cards) {
       const leftColumn = []
       const middleColumn = []
@@ -58,6 +71,8 @@ export default {
       return [leftColumn, middleColumn, rightColumn]
     },
     selectColumn (number) {
+      this.hover = null
+      this.flipCardsAnimation = true
       const [leftColumn, middleColumn, rightCollumn] = this.columns
       let mixedColumns = []
       switch (number) {
@@ -87,9 +102,20 @@ export default {
 <style lang="scss" scoped>
   @import "../../assets/scss/mixins";
 
-  .list-enter, .list-leave-to {
-    opacity: 0;
-    transform: translateY(60px);
+  @keyframes enter-cards {
+    from {
+      transform: translate3d(-800px,0,0) scale(1.5);
+    } to {
+      transform: translate3d(0,0,0);
+    }
+  }
+
+  @keyframes change-cards {
+    from {
+      transform: scale(-1);
+    } to {
+      transform: scale(1);
+    }
   }
 
   #cards {
@@ -130,7 +156,7 @@ export default {
           @include box-shadow-default;
           margin: 0 10px;
           max-width: 120px;
-          transition: all .3s;
+          transition: all .5s;
           @include responsive("m") {
             max-width: 100%;
             margin: 10px 5px;
@@ -138,8 +164,16 @@ export default {
         }
       }
 
+      .enter-animation img {
+        animation: enter-cards 1.5s both;
+      }
+
+      .change-cards img {
+        animation: change-cards 1s;
+      }
+
       .active {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
     }
   }

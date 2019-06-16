@@ -12,7 +12,9 @@
         <p class="instructions">
           That's is your card!
         </p>
-        <img :src="selectedCard.image" alt="">
+        <transition appear>
+          <img class="card" :src="selectedCard.image" alt="">
+        </transition>
         <button class="btn" @click="resetTrick">
           Play Again
         </button>
@@ -48,7 +50,7 @@ export default {
     },
     async resetTrick () {
       await this.fetchCards()
-      this.stageType = 0
+      this.currentStage = 0
       this.stageType = 'selectColumn'
     }
   },
@@ -87,17 +89,17 @@ export default {
         text-align: center;
       }
 
-      img {
-        transition: all .2s;
+      .card {
         margin: 10px 0;
-        &:hover {
-          transform: scale(1.05);
+        transition: all 2s;
+      }
+
+      .btn {
+        margin: 10px;
+        @include responsive("m") {
+          width: 100%;
         }
       }
-    }
-
-    .btn {
-      margin: 10px;
     }
   }
 </style>

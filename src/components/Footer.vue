@@ -16,7 +16,7 @@ export default {
 footer {
   @import "../assets/scss/colors";
   background: $primary-color;
-  padding: 25px 0;
+  padding: 15px 0;
   text-align: center;
   font-size: 1.2rem;
   color: white;

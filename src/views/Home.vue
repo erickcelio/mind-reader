@@ -20,6 +20,7 @@ export default {
     align-items: center;
     .btn {
       font-weight: 600;
+      padding: 15px 50px;
     }
   }
 </style>
