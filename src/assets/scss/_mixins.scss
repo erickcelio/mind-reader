@@ -17,3 +17,12 @@
 @mixin header-box-shadow {
   box-shadow: 0 2px 4px $shadow-color;
 }
+
+@mixin responsive($device) {
+  @if ($device == m) {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+}
+

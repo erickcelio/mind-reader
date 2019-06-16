@@ -97,6 +97,9 @@ export default {
     flex: 1;
     width: 100%;
     align-items: center;
+    @include responsive("m") {
+      @include row;
+    }
 
     .column {
       flex: 1;
@@ -104,6 +107,10 @@ export default {
       justify-content: center;
       align-items: center;
       width: 100%;
+
+      @include responsive("m") {
+        flex-direction: column;
+      }
 
       .btn {
         font-weight: bold;
@@ -115,11 +122,19 @@ export default {
       .cards-container {
         @include row;
 
+        @include responsive("m") {
+          flex-direction: column;
+        }
+
         .card {
           @include box-shadow-default;
           margin: 0 10px;
-          width: 120px;
+          max-width: 120px;
           transition: all .3s;
+          @include responsive("m") {
+            max-width: 100%;
+            margin: 10px 5px;
+          }
         }
       }
 

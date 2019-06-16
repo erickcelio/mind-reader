@@ -77,13 +77,23 @@ export default {
       @include column;
       flex: 1;
       align-items: center;
-    }
 
-    .instructions {
-      padding: 20px 0;
-      color: $primary-color;
-      font-weight: 600;
-      font-size: 1.5rem;
+      .instructions {
+        margin-top: 10px;
+        padding: 20px 0;
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      img {
+        transition: all .2s;
+        margin: 10px 0;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
     }
 
     .btn {
