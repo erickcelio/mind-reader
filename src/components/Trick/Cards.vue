@@ -73,17 +73,17 @@ export default {
     selectColumn (number) {
       this.hover = null
       this.flipCardsAnimation = true
-      const [leftColumn, middleColumn, rightCollumn] = this.columns
+      const [leftColumn, middleColumn, rightColumn] = this.columns
       let mixedColumns = []
       switch (number) {
         case 0:
-          mixedColumns = [...middleColumn, ...leftColumn, ...rightCollumn]
+          mixedColumns = [...middleColumn, ...leftColumn, ...rightColumn]
           break
         case 1:
-          mixedColumns = [...leftColumn, ...middleColumn, ...rightCollumn]
+          mixedColumns = [...leftColumn, ...middleColumn, ...rightColumn]
           break
         case 2:
-          mixedColumns = [...leftColumn, ...rightCollumn, ...middleColumn]
+          mixedColumns = [...leftColumn, ...rightColumn, ...middleColumn]
           break
       }
       this.changeCards(mixedColumns)
