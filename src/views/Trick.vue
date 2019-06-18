@@ -35,7 +35,7 @@ export default {
       stageInstructions: [
         'Select a card and please tell me which column it is in',
         'Select which column it is in now',
-        'Select once again which column she are for the last time'
+        'Select once again which it is'
       ]
     }
   },

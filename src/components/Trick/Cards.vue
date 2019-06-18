@@ -147,7 +147,6 @@ export default {
 
       .cards-container {
         @include row;
-
         @include responsive("m") {
           flex-direction: column;
         }
@@ -156,6 +155,7 @@ export default {
           @include box-shadow-default;
           margin: 0 10px;
           max-width: 120px;
+          min-width: 100px;
           transition: all .5s;
           @include responsive("m") {
             max-width: 100%;
