@@ -3,7 +3,7 @@
     <Loading  v-if="loadingCards" class="loading-cards" />
     <div v-else class="container">
       <div id="selectColumn" v-if="stageType === 'selectColumn'">
-        <p class="instructions">
+        <p data-cy="instructions" class="instructions">
           {{ stageInstructions[currentStage] }}
         </p>
         <Cards :cards="cards" :onSelect="onSelectColumn"/>
