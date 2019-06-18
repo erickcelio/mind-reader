@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>
-      Without copyright
+      Without copyright.
     </p>
   </footer>
 </template>

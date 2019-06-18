@@ -42,12 +42,14 @@ export default {
     min-height: 100vh;
     flex-direction: column;
     main {
+      padding: 10px;
+      overflow: auto;
       flex: 1;
       display: flex;
     }
 
     .btn {
-      @include box-shadow-default;
+      @include box-shadow-btn;
       display: block;
       padding: 10px 30px;
       background: $primary-color;
@@ -60,6 +62,7 @@ export default {
       font-family: "Avenir", "Arial", "Helvetica", "sans-serif";
       cursor: pointer;
       outline: none;
+      font-weight: 600;
       &:hover {
         background-color: $secondary-color;
         transform: scale(1.1);

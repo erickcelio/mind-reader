@@ -165,7 +165,7 @@ export default {
       }
 
       .enter-animation img {
-        animation: enter-cards 1.5s both;
+        animation: enter-cards 1s both;
       }
 
       .change-cards img {

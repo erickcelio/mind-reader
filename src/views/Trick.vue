@@ -12,9 +12,7 @@
         <p class="instructions">
           That's is your card!
         </p>
-        <transition appear>
-          <img class="card" :src="selectedCard.image" alt="">
-        </transition>
+        <img class="card" :src="selectedCard.image" alt="">
         <button class="btn" @click="resetTrick">
           Play Again
         </button>
@@ -37,7 +35,7 @@ export default {
       stageInstructions: [
         'Select a card and please tell me which column it is in',
         'Select which column it is in now',
-        'Select once again which column she is for the last time'
+        'Select once again which column she are for the last time'
       ]
     }
   },
@@ -91,15 +89,24 @@ export default {
 
       .card {
         margin: 10px 0;
-        transition: all 2s;
+        animation: appear .6s;
       }
 
       .btn {
         margin: 10px;
+        padding: 15px 30px;
         @include responsive("m") {
           width: 100%;
         }
       }
+    }
+  }
+
+  @keyframes appear {
+    from {
+      transform: translate3d(0,-60px,0);
+    } to {
+      transform: translate3d(0,0,0);
     }
   }
 </style>
